@@ -34,4 +34,9 @@ To install global npm packages run the code
 - [fd](https://github.com/sharkdp/fd#installation) 
 - [ripgrep](https://github.com/BurntSushi/ripgrep#installation)
 
+## Install on new PC
+
+  http://bit.do/anargu-dotfiles-sh
+
+
 
