@@ -13,6 +13,9 @@ To install global npm packages run the code
 
 - [fd](https://github.com/sharkdp/fd#installation) 
 - [ripgrep](https://github.com/BurntSushi/ripgrep#installation)
+- [LazyGit](https://github.com/jesseduffield/lazygit)
+- [z](https://github.com/rupa/z) (or [z for fish](https://github.com/jethrokuan/z))
+- [exa](https://the.exa.website)
 
 ## Install on new PC
 
