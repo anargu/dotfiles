@@ -17,10 +17,8 @@ call plug#begin()
 " vim surround
 Plug 'tpope/vim-surround'
 
-" File browser with git indicators
-Plug 'preservim/nerdtree'
-Plug 'vim-scripts/The-NERD-tree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
+" File browser 
+Plug 'kyazdani42/nvim-tree.lua'
 
 " Git tools
 Plug 'tpope/vim-fugitive'
@@ -43,6 +41,8 @@ Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 
 " Themes
+" OneDark
+Plug 'navarasu/onedark.nvim'
 " Nord theme
 Plug 'arcticicestudio/nord-vim'
 " Oceanic Next
@@ -125,11 +125,9 @@ Plug 'karb94/neoscroll.nvim'
 
 Plug 'windwp/nvim-autopairs'
 
-Plug 'kyazdani42/nvim-tree.lua'
-
 Plug 'glepnir/dashboard-nvim'
 
-Plug 'romgrk/barbar.nvim'
+Plug 'akinsho/bufferline.nvim'
 
 call plug#end()
 
@@ -175,7 +173,8 @@ set termguicolors
 " colorscheme material
 "colorscheme nightfly
 "colorscheme gruvbox
-colorscheme nightfox
+"colorscheme nightfox
+colorscheme onedark
 
 function! LightTheme()
   set background=light
@@ -245,64 +244,6 @@ endif
 autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
 autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
 
-" file browser
-let NERDTreeIgnore = ['\.pyc$', '__pycache__']
-let NERDTreeMinimalUI = 1
-let g:nerdtree_open = 0
-map <leader>t :call NERDTreeToggle()<CR>
-"
-" Check if NERDTree is open or active
-function! IsNERDTreeOpen()
-  return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
-endfunction
-
-function! CheckIfCurrentBufferIsFile()
-  return strlen(expand('%')) > 0
-endfunction
-
-" Call NERDTreeFind iff NERDTree is active, current window contains a modifiable
-" file, and we're not in vimdiff
-function! SyncTree()
-  if &modifiable && IsNERDTreeOpen() && CheckIfCurrentBufferIsFile() && !&diff
-    NERDTreeFind
-    wincmd p
-  endif
-endfunction
-
-function NERDTreeToggle()
-    "NERDTreeTabsToggle
-    if g:nerdtree_open == 1
-        let g:nerdtree_open = 0
-    else
-        let g:nerdtree_open = 1
-        wincmd p
-        NERDTreeFind
-    endif
-endfunction
-
-"function! NERDTreeToggle()
-"  if CheckIfCurrentBufferIsFile()
-"    if IsNERDTreeOpen()
-"      NERDTreeClose
-"    else
-"      NERDTreeFind
-"    endif
-"  else
-"    NERDTree
-"  endif
-"endfunction
-
-" Highlight currently open buffer in NERDTree
-"autocmd BufRead * call SyncTree()
-
-let NERDTreeShowHidden=1
-" NERDTree setting defaults to work around http://github.com/scrooloose/nerdtree/issues/489
-let g:NERDTreeDirArrows = 1
-let g:NERDTreeDirArrowExpandable = '▸'
-let g:NERDTreeDirArrowCollapsible = '▾'
-let g:NERDTreeGlyphReadOnly = "RO"
-
-
 " TAB in general mode will move to text buffer
 nnoremap <TAB> :bnext<CR>
 " SHIFT-TAB will go back
@@ -320,12 +261,6 @@ nnoremap <C-l> <C-w>l
 
 "nnoremap <Leader>o o<Esc>^Da
 "nnoremap <Leader>O O<Esc>^Da
-
-" key map to save file with Cmd + s
-" map <D-s> :w<kEnter>  "Works in normal mode, must press Esc first"
-" imap <D-s> <Esc>:w<kEnter>i "Works in insert mode, saves and puts back in insert mode"
-
-
 
 " Fugitive configuration
 "cnoreabbrev g Git
