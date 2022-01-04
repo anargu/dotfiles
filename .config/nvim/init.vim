@@ -155,6 +155,8 @@ if need_to_install_plugins == 1
 endif
 
 
+" set mouse
+set mouse=a
 " always show the status bar
 set laststatus=2
 
