@@ -67,8 +67,8 @@ Plug 'EdenEast/nightfox.nvim'
 " Telescope file finder / picker
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+Plug 'nvim-telescope/telescope.nvim'
 
 " neovim plugins to make it more like an IDE 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -88,10 +88,6 @@ Plug 'hrsh7th/nvim-cmp'
 
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'L3MON4D3/LuaSnip' " Snippets plugin
-
-" Nicer LSP UI
-" Plug 'glepnir/lspsaga.nvim'
-"Plug 'tami5/lspsaga.nvim', { 'branch': 'nvim51' }
 
 " Commenting
 Plug 'JoosepAlviste/nvim-ts-context-commentstring'
@@ -128,6 +124,8 @@ Plug 'windwp/nvim-autopairs'
 Plug 'glepnir/dashboard-nvim'
 
 Plug 'akinsho/bufferline.nvim'
+
+Plug 'norcalli/nvim-colorizer.lua'
 
 call plug#end()
 
@@ -167,6 +165,7 @@ set t_Co=256
 " color schemes
 set termguicolors
 
+" let g:onedark_style = 'darker'
 "set background=light
 " setting colorscheme
 " colorscheme palenight
@@ -175,12 +174,12 @@ set termguicolors
 " colorscheme material
 "colorscheme nightfly
 "colorscheme gruvbox
-"colorscheme nightfox
-colorscheme onedark
+colorscheme duskfox
+"colorscheme dawnfox
+"colorscheme onedark
 
 function! LightTheme()
-  set background=light
-  colorscheme gruvbox
+  colorscheme dawnfox
 endfunction
 function! DarkTheme()
   colorscheme nightfox

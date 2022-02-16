@@ -1,21 +1,63 @@
-font:
-  normal:
-    family: FuraCode Nerd Font Mono
-    style: Regular
 
-  bold:
-    family: FuraCode Nerd Font Mono
-    style: Bold
+## Import files (Colors, Fonts, Etc)
+import:
+  - ~/.config/alacritty/colors.yml
+  - ~/.config/alacritty/fonts.yml
 
-  italic:
-    family: FuraCode Nerd Font Mono
-    style: Italic
+#font:
+#  normal:
+#    family: FuraCode Nerd Font Mono
+#    style: Regular
+#
+#  bold:
+#    family: FuraCode Nerd Font Mono
+#    style: Bold
+#
+#  italic:
+#    family: FuraCode Nerd Font Mono
+#    style: Italic
+#
+#  bold_italic:
+#    family: FuraCode Nerd Font Mono
+#    style: Bold Italic
+#  size: 11
+#  offset:
+#    x: 0
+#    y: 0
 
-  bold_italic:
-    family: FuraCode Nerd Font Mono
-    style: Bold Italic
+## Set environment variables
+env:
+  TERM: alacritty
+  WINIT_X11_SCALE_FACTOR: '1.0'
 
-  size: 11
-  offset:
-    x: 0
-    y: 0
+## Terminal window settings
+window:
+  dimensions:
+    columns: 82
+    lines: 25
+
+  padding:
+    x: 12
+    y: 12
+
+  decorations: full
+  startup_mode: Windowed
+  dynamic_title: true
+
+## scrolling
+  history: 10000
+  multiplier: 3
+
+## Background opacity
+background_opacity: 1.0
+
+## Cursor
+cursor:
+  style:
+    shape: Block
+    blinking: On
+
+  unfocused_hollow: false
+
+## Live config reload
+live_config_reload: true

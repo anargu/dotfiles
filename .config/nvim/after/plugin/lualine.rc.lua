@@ -62,8 +62,8 @@ end
 
 require'lualine'.setup {
   options = {
-    --theme = "nightfox",
-    theme = "onedark",
+    theme = "nightfox",
+    --theme = "onedark",
     --theme = "gruvbox"
     --theme = "material-nvim"
     icons_enabled = true,
