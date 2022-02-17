@@ -6,7 +6,7 @@ Check .npm_packages.txt file
 
 To install global npm packages run the code
 
-    cat npm_packages.txt | xargs npm install -g
+    cat .npm_packages.txt | xargs npm install -g
 
 ## system packages I use
 
@@ -23,3 +23,5 @@ To install global npm packages run the code
 
 
 Remember setting config alias to manage git command on dotfiles repository
+
+Check Atlassian's documentation [here](https://www.atlassian.com/git/tutorials/dotfiles)
