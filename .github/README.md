@@ -25,3 +25,10 @@ To install global npm packages run the code
 Remember setting config alias to manage git command on dotfiles repository
 
 Check Atlassian's documentation [here](https://www.atlassian.com/git/tutorials/dotfiles)
+
+## References
+
+https://bitbucket.org/durdn/cfg/src/master/.bin/install.sh
+https://www.atlassian.com/git/tutorials/dotfiles
+https://www.ackama.com/what-we-think/the-best-way-to-store-your-dotfiles-a-bare-git-repository-explained/
+
