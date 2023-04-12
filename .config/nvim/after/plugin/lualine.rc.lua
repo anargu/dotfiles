@@ -62,10 +62,11 @@ end
 
 require'lualine'.setup {
   options = {
-    theme = "nightfox",
+    -- theme = "nightfox",
     --theme = "onedark",
     --theme = "gruvbox"
     --theme = "material-nvim"
+    theme = "catppuccin",
     icons_enabled = true,
     component_separators = { "", "" },
 

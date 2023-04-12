@@ -6,24 +6,22 @@ local map = utils.map
 require'nvim-tree'.setup {
   disable_netrw       = true,
   hijack_netrw        = true,
-  open_on_setup       = false,
   ignore_ft_on_setup  = { "dashboard" },
-  auto_close          = false,
-  open_on_tab         = false,
+  -- open_on_tab         = false,
   hijack_cursor       = true,
-  update_cwd          = true,
-  update_to_buf_dir   = {
-    enable = true,
-    auto_open = true,
-  },
+  update_cwd          = false,
+  --[[ update_to_buf_dir   = { ]]
+  --[[   enable = true, ]]
+  --[[   auto_open = true, ]]
+  --[[ }, ]]
   diagnostics = {
     enable = false,
     icons = {
-      hint = "?",
-      info = "?",
-      warning = "?",
-      error = "?",
-    }
+      hint = "",
+      info = "",
+      warning = "",
+      error = "",
+    },
   },
   update_focused_file = {
     enable      = true,
@@ -44,15 +42,16 @@ require'nvim-tree'.setup {
     timeout = 500,
   },
   view = {
-    width = 30,
+    width = 40,
     --height = 30,
     hide_root_folder = true, -- default: false
-    allow_resize = true,
     side = 'left',
-    auto_resize = false,
+    adaptive_size = true,
     mappings = {
       custom_only = false,
-      list = {}
+      list = {
+        { key = "e" , action = nil },
+      }
     },
     number = false,
     relativenumber = false,
@@ -61,6 +60,11 @@ require'nvim-tree'.setup {
   trash = {
     cmd = "trash",
     require_confirm = true
+  },
+  actions = {
+    open_file = {
+      resize_window = true
+    }
   }
 }
 

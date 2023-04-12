@@ -18,7 +18,7 @@ call plug#begin()
 Plug 'tpope/vim-surround'
 
 " File browser 
-Plug 'kyazdani42/nvim-tree.lua'
+Plug 'kyazdani42/nvim-tree.lua', { 'branch': 'master' }
 
 " Git tools
 Plug 'tpope/vim-fugitive'
@@ -62,6 +62,8 @@ Plug 'rktjmp/lush.nvim'
 Plug 'ellisonleao/gruvbox.nvim'
 " nightfox
 Plug 'EdenEast/nightfox.nvim'
+" catppuccin
+Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 " END Themes
 
 " Telescope file finder / picker
@@ -69,30 +71,40 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-file-browser.nvim'
 
 " neovim plugins to make it more like an IDE 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'neovim/nvim-lspconfig'
 " show warnings, docs but prettier
-Plug 'tami5/lspsaga.nvim', { 'branch': 'nvim6.0' }
+Plug 'glepnir/lspsaga.nvim', { 'branch': 'main' }
+
+Plug 'onsails/lspkind-nvim'
 
 Plug 'ray-x/lsp_signature.nvim'
 
 " completion
 Plug 'hrsh7th/nvim-cmp' " Autocompletion plugin
 Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-nvim-lua'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-calc'
+Plug 'David-Kunz/cmp-npm'
 
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'L3MON4D3/LuaSnip' " Snippets plugin
+
+Plug 'rafamadriz/friendly-snippets'
 
 " Commenting
 Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 " Plug 'terrortylor/nvim-comment'
 Plug 'numToStr/Comment.nvim'
+
+Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
 
 " JS(X), TS(X)
 " Plug 'pangloss/vim-javascript'
@@ -108,12 +120,18 @@ Plug 'numToStr/Comment.nvim'
 Plug 'mattn/emmet-vim'
 
 " terminal
-"Plug 'akinsho/toggleterm.nvim'
+Plug 'akinsho/toggleterm.nvim'
 
 "Plug 'xiyaowong/nvim-transparent'
 
 " Misc
-Plug 'Pocco81/TrueZen.nvim'
+
+" Zen Mode
+Plug 'folke/zen-mode.nvim'
+
+Plug 'folke/twilight.nvim'
+
+Plug 'folke/todo-comments.nvim'
 
 Plug 'nathom/filetype.nvim'
 
@@ -121,11 +139,29 @@ Plug 'karb94/neoscroll.nvim'
 
 Plug 'windwp/nvim-autopairs'
 
+Plug 'liuchengxu/vim-clap'
+
 Plug 'glepnir/dashboard-nvim'
 
 Plug 'akinsho/bufferline.nvim'
 
 Plug 'norcalli/nvim-colorizer.lua'
+
+Plug 'ray-x/guihua.lua', {'do': 'cd lua/fzy && make' }
+
+Plug 'AndrewRadev/splitjoin.vim'
+
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
+
+Plug 'famiu/bufdelete.nvim'
+
+" Plug 'luukvbaal/nnn.nvim'
+
+"Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python -m chadtree deps'}
+
+" Golang
+Plug 'ray-x/go.nvim'
+
 
 call plug#end()
 
@@ -172,17 +208,19 @@ set termguicolors
 " colorscheme horizon
 " let g:material_style = 'lighter'
 " colorscheme material
-"colorscheme nightfly
-"colorscheme gruvbox
-colorscheme duskfox
-"colorscheme dawnfox
-"colorscheme onedark
+" colorscheme nightfly
+" colorscheme gruvbox
+" colorscheme duskfox
+" colorscheme dawnfox
+" colorscheme onedark
+colorscheme catppuccin
 
 function! LightTheme()
-  colorscheme dawnfox
+  set background=light " values dark/light
+  colorscheme gruvbox
 endfunction
 function! DarkTheme()
-  colorscheme nightfox
+  colorscheme catppuccin
 endfunction
 
 " open new split panes to right and below
@@ -211,10 +249,12 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set colorcolumn=80
-"set signcolumn=yes:2
+set signcolumn=yes:1
+" set signcolumn=auto
 " set viminfo='25,\"50,n~/.viminfo
 set tw=79
-set autoindent
+
+" set autoindent
 set smartindent
 
 " Transparent background
@@ -277,6 +317,12 @@ let g:signify_sign_delete_first_line = '‾'
 let g:signify_sign_change            = '~'
 " GitSigns
 
+" remap last yank
+nmap ,p "0p
+
+nmap ,P "0P
+
+
 "lua << EOF
 "local gitsigns = require('gitsigns')
 "gitsigns.setup()
@@ -284,4 +330,17 @@ let g:signify_sign_change            = '~'
 
 " Format json
 com! FormatJSON %!python -m json.tool
+
+lua << EOF
+  require('maps')
+EOF
+
+
+" Markdown Preview Plugin
+" do not close the preview tab when switching to other buffers
+let g:mkdp_auto_close = 0
+
+" commands
+
+command -range=% SortLinesByLength '<,'>!awk '{print length, $0}' | sort -n | sed 's/^[0-9]\+ //'
 

@@ -20,9 +20,12 @@ let g:dashboard_custom_header =<< trim END
 \   _-'                                                                `-_   /
  `''                                                                      ``'
 END
+"
+" Default value is clap
+let g:dashboard_default_executive ='clap'
+" let g:dashboard_default_executive ='telescope'
 
 lua << EOF
-vim.g.dashboard_default_executive = 'telescope'
 
 vim.g.dashboard_custom_shortcut = {
  last_session       = 'SPC s l',
