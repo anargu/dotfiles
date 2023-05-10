@@ -1,5 +1,5 @@
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-alias nvim='/opt/neovim/nvim_0.9.0.appimage'
+alias nvim='/opt/neovim/nvim.appimage'
 
 starship init fish | source
 
@@ -7,11 +7,6 @@ if type -q exa
   alias ll "exa -l -g --icons"
   alias lla "ll -a"
 end
-
-status is-login; and pyenv init --path | source
-status is-interactive; and pyenv init - | source
-
-status --is-interactive; and pyenv virtualenv-init - | source
 
 #set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; set -gx PATH $HOME/.cabal/bin $PATH /home/anargu/.ghcup/bin # ghcup-env
 
@@ -26,7 +21,17 @@ if status is-interactive
   set -gx PATH $GOPATH/bin $PATH
 
   set -gx CLOUDSDK_PYTHON $HOME/.pyenv/shims/python
+
+  # pyenv
+  set -gx PYENV_ROOT $HOME/.pyenv
+
+  set -gx PATH $PYENV_ROOT/bin $PATH
 end
+
+status is-login; and pyenv init --path | source
+status is-interactive; and pyenv init - | source
+
+status --is-interactive; and pyenv virtualenv-init - | source
 
 
 # pyenv init
