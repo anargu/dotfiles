@@ -139,8 +139,6 @@ Plug 'karb94/neoscroll.nvim'
 
 Plug 'windwp/nvim-autopairs'
 
-Plug 'liuchengxu/vim-clap'
-
 Plug 'glepnir/dashboard-nvim'
 
 Plug 'akinsho/bufferline.nvim'
