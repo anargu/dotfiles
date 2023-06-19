@@ -17,6 +17,10 @@ To install global npm packages run the code
 - [z](https://github.com/rupa/z) (or [z for fish](https://github.com/jethrokuan/z))
 - [exa](https://the.exa.website)
 
+If you are in Arch Linux, then you may run this command line to install almost all deps above:
+
+    sudo pacman -S fd ripgrep lazygit exa fish
+
 ## Install on new PC
 
     curl -Lks http://bit.do/anargu-dotfiles-sh | /bin/bash
