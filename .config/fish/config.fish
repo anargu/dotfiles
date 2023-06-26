@@ -1,5 +1,6 @@
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-alias nvim='/opt/neovim/nvim.appimage'
+#ONLY FOR ARCH CONFIG. NVIM WAS INSTALLED WITH PACMAN AND NOT WITH APPIMAGE
+#alias nvim='/opt/neovim/nvim.appimage'
 
 starship init fish | source
 
@@ -26,6 +27,8 @@ if status is-interactive
   set -gx PYENV_ROOT $HOME/.pyenv
 
   set -gx PATH $PYENV_ROOT/bin $PATH
+
+  set -gx PATH $HOME/flutter/flutter_3.10.5/bin $PATH
 end
 
 status is-login; and pyenv init --path | source
@@ -40,3 +43,11 @@ if command -v pyenv 1>/dev/null 2>&1
 end
 
 set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; set -gx PATH $HOME/.cabal/bin $PATH /home/anargu/.ghcup/bin # ghcup-env
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+#if test -f /home/whysoserious/miniconda3/bin/conda
+#    eval /home/whysoserious/miniconda3/bin/conda "shell.fish" "hook" $argv | source
+#end
+# <<< conda initialize <<<
+
