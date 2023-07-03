@@ -336,5 +336,44 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   }
 )
 
+
+nvim_lsp["dartls"].setup({
+  filetypes = { "dart" },
+  cmd = { "dart", "language-server", "--protocol=lsp" },
+  init_options = {
+    closingLabels = true,
+    flutterOutline = true,
+    onlyAnalyzeProjectsWithOpenFiles = true,
+    outline = true,
+    suggestFromUnimportedLibraries = true
+  },
+  root_dir = nvim_lsp.util.root_pattern("pubspec.yaml"),
+  settings = {
+    dart = {
+      analysisExcludedFolders = {
+        vim.fn.expand("$HOME/AppData/Local/Pub/Cache"),
+        vim.fn.expand("$HOME/.pub-cache"),
+        vim.fn.expand("/opt/homebrew/"),
+        vim.fn.expand("flutter/flutter_3.10.5/"),
+      },
+      updateImportsOnRename = true,
+      completeFunctionCalls = true,
+      showTodos = true,
+    }
+  },
+  
+  on_attach = function(client, bufnr)
+    local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+    local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+    local opts = { noremap=true, silent=true }
+
+    client.server_capabilities.document_formatting = false
+
+    formatting_callback(client, bufnr)
+
+    on_attach(client, bufnr) 
+  end,
+})
+
 EOF
 

@@ -143,7 +143,8 @@ Plug 'glepnir/dashboard-nvim'
 
 Plug 'akinsho/bufferline.nvim'
 
-Plug 'norcalli/nvim-colorizer.lua'
+" Plug 'norcalli/nvim-colorizer.lua'
+Plug 'NvChad/nvim-colorizer.lua'
 
 Plug 'ray-x/guihua.lua', {'do': 'cd lua/fzy && make' }
 
@@ -160,6 +161,10 @@ Plug 'famiu/bufdelete.nvim'
 " Golang
 Plug 'ray-x/go.nvim'
 
+" AI
+"Plug 'aduros/ai.vim'
+
+Plug 'stevearc/dressing.nvim' " optional for vim.ui.select
 
 call plug#end()
 
@@ -207,11 +212,11 @@ set termguicolors
 " let g:material_style = 'lighter'
 " colorscheme material
 " colorscheme nightfly
-" colorscheme gruvbox
+colorscheme gruvbox
 " colorscheme duskfox
 " colorscheme dawnfox
 " colorscheme onedark
-colorscheme catppuccin
+" colorscheme catppuccin
 
 function! LightTheme()
   set background=light " values dark/light

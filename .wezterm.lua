@@ -11,7 +11,7 @@ if wezterm.config_builder then
 end
 
 -- Font
-config.font = wezterm.font 'FiraMono Nerd Font'
+config.font = wezterm.font 'JetBrainsMono Nerd Font'
 
 -- Color scheme
 config.color_scheme = 'Tokyo Night (Gogh)'
