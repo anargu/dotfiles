@@ -51,3 +51,15 @@ set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; se
 #end
 # <<< conda initialize <<<
 
+
+# I want to use $@ for all arguments but they don't contain space for me
+
+if type -q flutter
+  function flutter-watch
+    tmux send-keys "flutter run $1 $2 $3 $4 --pid-file=/tmp/tf1.pid" Enter \;\
+    split-window -v \;\
+    send-keys 'npx -y nodemon -e dart -x "cat /tmp/tf1.pid | xargs kill -s USR1"' Enter \;\
+    resize-pane -y 5 -t 1 \;\
+    select-pane -t 0 \;
+  end
+end
