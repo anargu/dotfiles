@@ -64,6 +64,9 @@ Plug 'ellisonleao/gruvbox.nvim'
 Plug 'EdenEast/nightfox.nvim'
 " catppuccin
 Plug 'catppuccin/nvim', {'as': 'catppuccin'}
+" nightfox
+Plug 'folke/tokyonight.nvim'
+
 " END Themes
 
 " Telescope file finder / picker
@@ -212,11 +215,12 @@ set termguicolors
 " let g:material_style = 'lighter'
 " colorscheme material
 " colorscheme nightfly
-colorscheme gruvbox
+" colorscheme gruvbox
 " colorscheme duskfox
 " colorscheme dawnfox
 " colorscheme onedark
 " colorscheme catppuccin
+colorscheme tokyonight-night
 
 function! LightTheme()
   set background=light " values dark/light
