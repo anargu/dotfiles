@@ -1,6 +1,7 @@
 " Using Lua functions
 nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
 nnoremap <leader>fb <cmd>:Telescope file_browser<cr>
+nnoremap <leader>fB <cmd>:Telescope buffers<cr>
 
 nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <leader>b <cmd>lua require('telescope.builtin').buffers()<cr>
