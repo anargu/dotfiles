@@ -30,6 +30,29 @@ Remember setting config alias to manage git command on dotfiles repository
 
 Check Atlassian's documentation [here](https://www.atlassian.com/git/tutorials/dotfiles)
 
+### If you are using Arch linux
+
+    sudo pacman -S ttf-firacode-nerd
+    sudo pacman -S ttf-ibmplex-mono-nerd
+    sudo pacman -S clang cmake
+    sudo pacman -S telegram-desktop
+
+    # if you are using archcraft then install i3wm flavour
+    sudo pacman -Syyu && sudo pacman -S archcraft-i3wm
+
+    # Update packages
+    sudo pacman -Syyu
+    
+    sudo pacman -S tmux
+
+    # tmux dependency (if necessary)
+    sudo pacman -S ncurses
+
+    sudo pacman -S neovim
+
+    yay -S wezterm
+
+
 ## References
 
 https://bitbucket.org/durdn/cfg/src/master/.bin/install.sh
