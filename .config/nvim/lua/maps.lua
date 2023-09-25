@@ -16,6 +16,8 @@ keymap.set('n', 'te', ':tabedit<Return>', { silent = true })
 -- Split buffer vertically/horizontally
 keymap.set('n', 'ss', ':split<Return>', { silent = true })
 keymap.set('n', 'sv', ':vsplit<Return>', { silent = true })
+keymap.set('t', '<Esc>', [[<C-\><C-n>]], { silent = true })
+
 
 local closeBufferAndGoPrevious = function()
   -- local delete_cmd = 'Bdelete'
