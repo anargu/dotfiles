@@ -13,7 +13,10 @@ end
 -- Font
 -- config.font = wezterm.font 'JetBrainsMono Nerd Font'
 -- config.font = wezterm.font 'IBM Plex Mono Regular'
-config.font = wezterm.font 'FiraCode Nerd Font Mono'
+config.font = wezterm.font_with_fallback {
+  'FiraCode Nerd Font Mono',
+  'BlexMono Nerd Font Mono',
+}
 
 -- Color scheme
 config.color_scheme = 'Tokyo Night (Gogh)'

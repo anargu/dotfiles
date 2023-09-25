@@ -16,6 +16,9 @@ To install global npm packages run the code
 - [LazyGit](https://github.com/jesseduffield/lazygit)
 - [z](https://github.com/rupa/z) (or [z for fish](https://github.com/jethrokuan/z))
 - [exa](https://the.exa.website)
+- [starship shell](https://starship.rs/guide/#%F0%9F%9A%80-installation)
+- [pyenv](https://github.com/pyenv/pyenv#automatic-installer)
+- [nvm](https://github.com/nvm-sh/nvm#install--update-script)
 
 If you are in Arch Linux, then you may run this command line to install almost all deps above:
 
