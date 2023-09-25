@@ -55,6 +55,9 @@ Check Atlassian's documentation [here](https://www.atlassian.com/git/tutorials/d
 
     yay -S wezterm
 
+## Open changes with Lazygit 
+
+    lazygit --git-dir=$HOME/.cfg/ --work-tree=$HOME
 
 ## References
 
